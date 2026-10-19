@@ -29,8 +29,15 @@ def init_db():
         tipo_agenzia TEXT,
         numero_agenti INTEGER,
         owner_id TEXT,
+        evento_futuro TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )''')
+    
+    # Aggiornamento automatico: se il database esiste già, aggiunge la nuova colonna senza cancellare i dati
+    try:
+        c.execute("ALTER TABLE leads ADD COLUMN evento_futuro TEXT")
+    except sqlite3.OperationalError:
+        pass # Se dà errore significa che la colonna c'è già, quindi andiamo avanti
     
     c.execute('''CREATE TABLE IF NOT EXISTS interactions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
