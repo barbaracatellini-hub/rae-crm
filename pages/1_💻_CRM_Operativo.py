@@ -39,7 +39,7 @@ with st.expander("Aggiungi Nuovo Contatto (Persona o Agenzia)"):
         status = col6.selectbox("Stato Iniziale", ['Nuovo', 'Contattato', 'In Trattativa', 'Chiuso Vinto', 'Chiuso Perso'])
         valore_stimato = col7.number_input("Valore Stimato (€)", min_value=0.0, step=100.0)
         # NUOVO CAMPO: Evento Futuro
-        evento_futuro = col12.selectbox("Evento Futuro", ["Nessuna", "Da Chiamare", "Inviare Email", "Fissare Demo", "Inviare Preventivo", "Follow-up", "Incontro di persona"])
+        evento_futuro = col12.selectbox("Evento Futuro (Prossima Azione)", ["Nessuna", "Da Chiamare", "Inviare Email", "Fissare Demo", "Inviare Preventivo", "Follow-up", "Incontro di persona"])
         
         submit_lead = st.form_submit_button("Salva Contatto")
         
